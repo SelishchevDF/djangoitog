@@ -1,0 +1,24 @@
+{% extends "./base.html" %}
+
+{% block cnt %}
+    <h1>Рецепты</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>NAME</th>
+                <th>DESCRIPTION</th>
+                <th>PICTURE</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in recipes %}
+        <tr>
+                <td><a href="/recipe/{{ r.id }}">{{ r.name }}</a></td>
+                <td>{{ r.description }}</td>
+                <td><img src="//itogproject/media/{{ r.picture }}"></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

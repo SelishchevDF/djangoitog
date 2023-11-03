@@ -1,0 +1,14 @@
+{% extends "./base.html" %}
+
+{% block cnt %}
+    <h1>Рецепт {{ r.name }}, автор - {{ r.author.username }}</h1>
+    {% if request.user.is_authenticated %}
+        {% if request.user == r.author %}
+            <a href="/redact_recipe/{{ r.id }}">Редактировать рецепт</a>
+        {% endif %}
+    {% endif %}
+    <h2>{{ r.description }}</h2>
+    <p>{{ r.steps }}</p>
+    <p>{{ r.cooking_time }}</p>
+    <img src="//itogproject/media/{{ r.picture }}">
+{% endblock %}

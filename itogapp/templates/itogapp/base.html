@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+    <div class = "header">
+        {% if request.user.is_authenticated %}
+            <h2> Привет, {{user.username}}! </h2> 
+            <a href="{% url 'logout' %}">Выйти</a>
+            <div>
+                <a href="{% url 'add_recipe' %}">Добавить рецепт</a>
+                <a href="{% url 'my_recipes' %}">Мои рецепты</a>
+                <a href="{% url 'all_recipes' %}">ВСЕ рецепты</a>
+            </div>
+        {% else %}
+            <h2> Привет, прекрасный человек! </h2>
+            <a href="{% url 'registration' %}">Регистрация</a>
+            <a href="{% url 'login' %}">Войти</a>
+        {% endif %}
+    </div>
+    <div class = "content">
+        {% block cnt %}
+
+        {% endblock  %}
+    </div>
+</body>
+</html>
