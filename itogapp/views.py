@@ -14,11 +14,12 @@ class IndexView(View):
     def get(self, request):
         context={}
         recipes = Recipe.objects.all()
-        recipies_list = []
-        for i in range(5):
-            r=random.choice(recipes)
-            recipies_list.append(r)
-        context['recipes'] = recipies_list
+        if recipes:
+            recipies_list = []
+            for i in range(5):
+                r=random.choice(recipes)
+                recipies_list.append(r)
+            context['recipes'] = recipies_list
         return render(request, 'itogapp/index.html', context)
     
 def registration_user(request):
