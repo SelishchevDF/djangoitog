@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'itogproject.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'selishchev': {
+    'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'selishchev$selishchev',
         'USER': 'selishchev',
